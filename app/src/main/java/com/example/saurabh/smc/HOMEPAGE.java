@@ -15,7 +15,9 @@ import com.example.saurabh.smc.fragements.ActionFragment;
 import com.example.saurabh.smc.fragements.FAQ;
 import com.example.saurabh.smc.fragements.MemberFragment;
 import com.example.saurabh.smc.fragements.MyListFragment;
+import com.example.saurabh.smc.fragements.TestFragment;
 import com.example.saurabh.smc.fragements.homepage_tabs;
+import com.example.saurabh.smc.fragements.meeting;
 
 public class HOMEPAGE extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -26,6 +28,7 @@ public class HOMEPAGE extends AppCompatActivity
         setContentView(R.layout.activity_homepage);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle("Meeting Management App");
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -84,9 +87,9 @@ public class HOMEPAGE extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -123,6 +126,7 @@ public class HOMEPAGE extends AppCompatActivity
 
 
         } else if (id == R.id.nav_meeting) {
+           setTitle("Meetings");
            meeting fragment = new meeting();
            /* Bundle b=new Bundle();
             b.putInt("id",0);
@@ -160,6 +164,17 @@ public class HOMEPAGE extends AppCompatActivity
            fragmentTransaction.commit();
 
         } else if (id == R.id.nav_settings) {
+
+           TestFragment fragment = new TestFragment();
+           /* Bundle b=new Bundle();
+            b.putInt("id",0);
+            fragment.setArguments(b);
+            //fragment.setArguments();*/
+
+           android.support.v4.app.FragmentTransaction fragmentTransaction =
+                   this.getSupportFragmentManager().beginTransaction();
+           fragmentTransaction.replace(R.id.frame_container,fragment);
+           fragmentTransaction.commit();
 
         } else if (id == R.id.nav_smc_mem) {
 

@@ -1,151 +1,99 @@
 package com.example.saurabh.smc.adapter;
 
-import android.app.Activity;
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.amulyakhare.textdrawable.TextDrawable;
-import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.example.saurabh.smc.ListModels.RowItem;
 import com.example.saurabh.smc.R;
+import com.example.saurabh.smc.graphics.My_ColorGenerator;
+import com.example.saurabh.smc.graphics.My_TextDrawable;
 
 import java.util.List;
 
 /**
  * Created by Saurabh on 5/26/2016.
  */
-public class CustomAdapter extends BaseAdapter {
+public class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     Context context;
-    RowItem tempValues=null;
 //    RowItem tempValue1=null;
-    List<RowItem> rowItem;
+    List<Object> rowItem;
 //    List<RowItem> rowItem1;
 
-    public CustomAdapter(Context context, List<RowItem> rowItem) {
-        this.context = context;
+    public CustomAdapter(List<Object> rowItem) {
         this.rowItem = rowItem;
 //        this.rowItem1 = rowItem1;
+    }
 
+    public static class school_list_holder extends RecyclerView.ViewHolder {
+
+        TextView school_name;
+        TextView school_address;
+        ImageView school_icon;
+
+
+        school_list_holder(View v) {
+            super(v);
+            this.school_name = (TextView) v.findViewById(R.id.schoolName);
+            this.school_address = (TextView) v.findViewById(R.id.schoolAddress);
+            this.school_icon = (ImageView) v.findViewById(R.id.school_icon);
+        }
     }
 
     @Override
-    public int getCount() {
+    public int getItemCount() {
 
         return rowItem.size();
     }
 
     @Override
-    public Object getItem(int position) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int position) {
 
-        return rowItem.get(position);
+        RecyclerView.ViewHolder school;
+
+
+                View v1 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item,viewGroup,false);
+                school = new school_list_holder(v1);
+
+        return school;
     }
 
     @Override
-    public long getItemId(int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder schoolViewHolder, int position) {
 
-        return rowItem.indexOf(getItem(position));
+
+                school_list_holder school_list = (school_list_holder) schoolViewHolder;
+                configureSchoolHolder(school_list, position);
     }
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    private void configureSchoolHolder(school_list_holder school_list,int position) {
+        RowItem temp = (RowItem) rowItem.get(position);
+        if (temp != null) {
+            school_list.school_name.setText(temp.getTitle());
+            school_list.school_address.setText(temp.getAddress());
 
-//        if (convertView == null) {
-//            LayoutInflater mInflater = (LayoutInflater) context
-//                    .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-//            convertView = mInflater.inflate(R.layout.list_item, null);
-//        }
-//
-//        //ImageView imgIcon = (ImageView) convertView.findViewById(R.id.icon);
-//        TextView txtTitle = (TextView) convertView.findViewById(R.id.title);
-//
-//        RowItem row_pos = rowItem.get(position);
-//        // setting the image resource and title
-//        //imgIcon.setImageResource(row_pos.getIcon());
-//        txtTitle.setText(row_pos.getTitle());
-        View vi = convertView;
-        ViewHolder holder;
+            String firstLetter = String.valueOf(temp.getTitle().charAt(0));
 
-        if(convertView==null){
-
-            /****** Inflate tabitem.xml file for each row ( Defined below ) *******/
-            LayoutInflater mInflater = (LayoutInflater) context
-                    .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            vi = mInflater.inflate(R.layout.list_item, null);
-
-
-            /****** View Holder Object to contain tabitem.xml file elements ******/
-
-            holder = new ViewHolder();
-            holder.text = (TextView) vi.findViewById(R.id.schoolName);
-            holder.text1 = (TextView) vi.findViewById(R.id.schoolAddress);
-            holder.image = (ImageView) vi.findViewById(R.id.school_icon);
-           // holder.text1=(TextView)vi.findViewById(R.id.text1);
-            //holder.image=(ImageView)vi.findViewById(R.id.image);
-
-            /************  Set holder with LayoutInflater ************/
-            vi.setTag( holder );
-        }
-        else
-            holder=(ViewHolder)vi.getTag();
-
-        if(rowItem.size()<=0)
-        {
-            holder.text.setText("No Data");
-
-        }
-        else
-        {
-            /***** Get each Model object from Arraylist ********/
-            tempValues=null;
-            tempValues = ( RowItem ) rowItem.get( position );
-//            tempValue1 = null;
-//            tempValue1 = ( RowItem ) rowItem1.get(position);
-
-
-            /************  Set Model values in Holder elements ***********/
-            if(holder.text!= null){
-                holder.text.setText( tempValues.getTitle() );}
-
-            holder.text1.setText(tempValues.getAddress());
-
-            String firstLetter = String.valueOf(tempValues.getTitle().charAt(0));
-
-            ColorGenerator generator = ColorGenerator.MATERIAL; // or use DEFAULT
+            My_ColorGenerator generator = My_ColorGenerator.MATERIAL; // or use DEFAULT
             // generate random color
-            int color = generator.getColor(getItem(position));
+            int color = generator.getColor(position);
             //int color = generator.getRandomColor();
 
-            TextDrawable drawable = TextDrawable.builder()
+            My_TextDrawable drawable = My_TextDrawable.builder()
                     .buildRound(firstLetter, color); // radius in px
 
-            holder.image.setImageDrawable(drawable);
-           // holder.text1.setText( tempValues.getUrl() );
-            //holder.image.setImageResource(
-              //      res.getIdentifier(
-                //            "com.androidexample.customlistview:drawable/"+tempValues.getImage()
-                  //          ,null,null));
-
-            /******** Set Item Click Listner for LayoutInflater for each row *******/
-
-
+            school_list.school_icon.setImageDrawable(drawable);
         }
-        return vi;
-
-
-
     }
-}
- class ViewHolder{
 
-    public TextView text;
-    public TextView text1;
-    public TextView textWide;
-    public ImageView image;
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+    }
 
 }

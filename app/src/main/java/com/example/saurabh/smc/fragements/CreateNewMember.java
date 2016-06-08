@@ -28,4 +28,12 @@ public class CreateNewMember extends Fragment {
         return inflater.inflate(R.layout.fragment_create_new_member, container, false);
     }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+
+        super.onActivityCreated(savedInstanceState);
+        getActivity().setTitle("Create New Member");
+
+
+    }
 }

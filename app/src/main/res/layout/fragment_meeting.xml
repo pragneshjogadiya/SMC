@@ -1,64 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-android:id="@+id/meetingContainer"
-android:layout_width="match_parent"
-android:layout_height="95dp"
-android:background="@drawable/border">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="5dp"
+    >
 
-
-
-<RelativeLayout android:layout_width="match_parent"
-    android:layout_height="95dp">
-
-
-    <TextView
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="38sp"
-        android:singleLine="true"
-        android:id="@+id/meeting_date"
-        android:layout_marginTop="6dp"
-        android:text="5"
-        android:layout_marginLeft="13dp"
-        android:textColor="@color/colorPrimary" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="Sep"
-        android:singleLine="true"
-        android:id="@+id/meeting_month"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="17dp"
-        android:textColor="@color/colorPrimary" />
+        android:id="@+id/meeting_cardView"
+        >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="19sp"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            >
 
-        android:text="Large Text"
-        android:singleLine="true"
-        android:id="@+id/meeting_number"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="70dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="38sp"
+                android:singleLine="true"
+                android:id="@+id/meeting_date"
+                android:layout_marginTop="6dp"
+                android:text="15"
+                android:layout_marginLeft="13dp"
+                android:textColor="@color/colorPrimary" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Sep"
+                android:singleLine="true"
+                android:id="@+id/meeting_month"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="17dp"
+                android:textColor="@color/colorPrimary" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxLines="2"
-        android:text="Small Text"
-        android:layout_below="@+id/meeting_number"
-        android:id="@+id/meeting_agenda"
-        android:layout_marginTop="7dp"
-        android:layout_marginLeft="70dp" />
-</RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="19sp"
+
+                android:text="Large Text"
+                android:singleLine="true"
+                android:id="@+id/meeting_number"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="70dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Small Text"
+                android:maxLines="2"
+                android:layout_below="@+id/meeting_number"
+                android:id="@+id/meeting_agenda"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="70dp" />
 
 
+        </RelativeLayout>
 
-</RelativeLayout>
+    </android.support.v7.widget.CardView>
 
-
-
+</LinearLayout>

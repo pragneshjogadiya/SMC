@@ -6,41 +6,41 @@ package com.example.saurabh.smc.ListModels;
 public class MemberModel {
 
 
-    private String name;
-    private String desig;
-    private String num ;
+    private String member_list_name;
+    private String member_list_designation;
+    private int member_list_mobile;
 
 
 
-    public MemberModel(String name,String desig, String num) {
-        this.name = name;
-        this.desig = desig;
-        this.num = num;
-
-
+    public MemberModel(String member_list_name,String member_list_designation, int member_list_mobile) {
+        this.member_list_name = member_list_name;
+        this.member_list_designation = member_list_designation;
+        this.member_list_mobile = member_list_mobile;
 
     }
 
-    public String getName() {
-        return name;
+    public String getMember_list_name() {
+        return member_list_name;
     }
 
-    public void setname(String title) {
-        this.name = title;
-    }
-    public String getdesig() {
-        return desig;
+    public void setMember_list_name(String member_list_name) {
+        this.member_list_name = member_list_name;
     }
 
-    public void setdesig(String date) {
-        this.desig = date;
-    }
-    public String getNum() {
-        return num;
+    public String getMember_list_designation() {
+        return member_list_designation;
     }
 
-    public void setNUm(String title) {
-        this.num = title;
+    public void setMember_list_designation(String member_list_designation) {
+        this.member_list_designation = member_list_designation;
+    }
+
+    public int getMember_list_mobile() {
+        return member_list_mobile;
+    }
+
+    public void setMember_list_mobile(int member_list_mobile) {
+        this.member_list_mobile = member_list_mobile;
     }
 
 }

@@ -1,0 +1,68 @@
+<RelativeLayout android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginRight="5sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:background= "@color/colorPrimary"
+        android:padding="5dp"
+        android:id="@+id/relativeLayout">
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/add_icon_iv"
+            android:layout_marginLeft="5dp"
+
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_menu_gallery"
+            />
+        <LinearLayout
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_width="0px"
+            android:layout_height="0px"/>
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:cursorVisible="true"
+            android:textCursorDrawable="@null"
+            android:singleLine="true"
+
+            android:background="#00000000"
+            android:textColorHint="@android:color/white"
+            android:textColor="#ffffff"
+            android:id="@+id/editText_agenda"
+            android:layout_centerVertical="true"
+            android:layout_alignTop="@+id/add_icon_iv"
+            android:layout_toRightOf="@+id/add_icon_iv"
+            android:layout_toEndOf="@+id/add_icon_iv" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="C"
+            android:id="@+id/add_new_button"
+            android:layout_alignTop="@+id/editText_agenda"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <include layout="@layout/recycleview_layout"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+</RelativeLayout>

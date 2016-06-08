@@ -6,27 +6,50 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="16dp"
-    tools:context="com.example.saurabh.smc.fragements.NewActionFragment">
+    tools:context="com.example.saurabh.smc.ActionDiscription">
 
     <!-- TODO: Update blank fragment layout -->
 
 
-    <TextView android:layout_width="match_parent"
-        android:layout_height="65dp"
+
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/border"
-        android:id="@+id/action_disc_title"
+        android:id="@+id/action_disc_frag_title_lay"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
+        android:padding="10dp"
         android:layout_marginRight="10dp"
-        android:gravity="center"
 
-        android:textColor="#000"
-        android:textSize="18sp"
 
-        />
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Title: "
+            android:textColor="#000"
+            android:layout_centerVertical="true"
+            android:id="@+id/Title"
+
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/action_disc_titleeditText"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/Title"
+            android:layout_toEndOf="@+id/Title" />
+    </RelativeLayout>
 
 
 
@@ -34,7 +57,9 @@
         android:layout_height="55dp"
         android:background="@drawable/border"
         android:id="@+id/relativeLayout"
-        android:layout_below="@+id/action_disc_title"
+        android:clickable="true"
+        android:onClick="setDate"
+        android:layout_below="@+id/action_disc_frag_title_lay"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -79,7 +104,8 @@
     </RelativeLayout>
 
     <RelativeLayout android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
         android:layout_below="@id/relativeLayout"
         android:background="@drawable/border"
         android:layout_marginTop="20dp"
@@ -109,10 +135,20 @@
             android:layout_alignTop="@+id/act_dis_catetext"
             android:layout_toRightOf="@+id/act_dis_catetext"
             android:layout_toEndOf="@+id/act_dis_catetext" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:layout_alignTop="@+id/act_dis_catetext"
+            android:layout_toRightOf="@+id/act_dis_catetext"
+            android:layout_toEndOf="@+id/act_dis_catetext" />
     </RelativeLayout>
 
     <RelativeLayout android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
         android:layout_below="@id/relativeLayout1"
         android:background="@drawable/back2"
         android:layout_marginTop="20dp"
@@ -125,7 +161,7 @@
             android:layout_width="50dp"
             android:layout_height="55dp"
             android:id="@+id/act_dis_owner_iv"
-            
+
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:layout_alignParentLeft="true"
@@ -144,17 +180,17 @@
             android:layout_toRightOf="@+id/act_dis_owner_iv"
             android:layout_toEndOf="@+id/act_dis_owner_iv" />
 
-        <TextView
+        <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Mr. Manish Bhargawa"
-            android:textColor="#000"
-            android:id="@+id/act_dis_owner"
-            android:layout_marginBottom="10dp"
-            android:layout_alignParentBottom="true"
+            android:drawSelectorOnTop="true"
+
+
+            android:id="@+id/action_disc_owner_spinner"
+            android:layout_below="@+id/act_dis_assigntext"
             android:layout_alignLeft="@+id/act_dis_assigntext"
             android:layout_alignStart="@+id/act_dis_assigntext" />
+
     </RelativeLayout>
 
 

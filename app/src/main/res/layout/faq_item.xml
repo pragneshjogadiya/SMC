@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:padding="2dp"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="5dp"
     >
 
     <android.support.v7.widget.CardView
@@ -14,31 +16,51 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
+            android:paddingBottom="10dp"
             >
 
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="38sp"
+                android:singleLine="true"
+                android:id="@+id/FAQ_meeting_date"
+                android:layout_marginTop="6dp"
+                android:text="15"
+                android:layout_marginLeft="13dp"
+                android:textColor="@color/colorPrimary" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Sep"
+                android:singleLine="true"
+                android:id="@+id/FAQ_meeting_month"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="17dp"
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/FAQ_Q_tv"
-                android:text="Q: How long a faq can be?. Can it be 4 lines long or only 2 lines?."
-                android:layout_alignParentTop="true"
-                android:textStyle="bold"
+                android:textSize="19sp"
 
-                />
+                android:text="Large Text"
+                android:singleLine="true"
+                android:id="@+id/FAQ_meeting_number"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="70dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/FAQ_A_tv"
+                android:text="Small Text"
+                android:maxLines="2"
+                android:layout_below="@+id/FAQ_meeting_number"
+                android:id="@+id/FAQ_meeting_agenda"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="70dp" />
 
-                android:text="A: It can be very very long like 50 lines and 50 line answere but here only 2 lines"
-
-
-                android:layout_below="@+id/FAQ_Q_tv"
-                />
 
         </RelativeLayout>
 
